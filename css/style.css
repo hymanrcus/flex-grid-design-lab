@@ -1,0 +1,156 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+   in most browser configurations this will be 10px */
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #1a6060;
+/* Use a system font, if none are available use an available sans-sarif   font */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 0;
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+main { 
+  width: 225px;
+  background-color: white;
+  text-align: center;
+}
+
+#status {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 8px 0 0; 
+}
+
+#img-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 125px;
+}
+
+img {
+  border-radius: 100%;
+  border: 3px #74c78f solid; 
+  /* max-width: 100%;
+  height: auto; */
+}
+h1 {
+  text-align: center;
+  font-size: 20px;
+}
+
+#occupation {
+  background-color: #f4f3f3;
+  padding: 4px 0; 
+}
+
+#brand {
+  display: none; 
+}
+
+p{
+  margin: 4px 0; 
+}
+
+#occupation, #offer {
+  padding: 6px 0;
+}
+
+#contact {
+  display: flex; 
+}
+
+#contact > p{
+  height: 80px; 
+  width: 50%; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+#contact > p:first-child {
+  background-color: #66d18d;
+  height: 50px;
+}
+
+#contact > p:last-child {
+  background-color: #54c07b;
+  height: 50px;
+}
+
+@media only screen and (min-width: 768px){
+  main {
+    width: 450px; 
+    display: grid; 
+    text-align: left;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: 
+    "status name"
+    "img occ"
+    "img brand"
+    "contact offer"
+    ;
+  }
+
+  #status {
+    grid-area: status; 
+    justify-content: flex-start;
+    padding: 8px; 
+  }
+
+  #brand {
+    display: block;
+    grid-area: brand;
+    padding: 8px;
+    background-color: #f4f3f3;
+    font-size: 12px;
+  }
+
+  img {
+    grid-area: img; 
+  }
+
+  #occupation {
+    grid-area: occ;
+    background-color: #f4f3f3;
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  #name {
+    grid-area: name; 
+    background-color: #f4f3f3;
+    text-align: center; 
+  }
+
+  #offer{
+    grid-area: offer;
+    background-color: #f4f3f3;
+    padding:6px; 
+  }
+
+  #contact {
+    grid-area: contact;
+  }
+}
